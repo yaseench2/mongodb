@@ -14,7 +14,7 @@ app.use(express.static('static'))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
-let {getData}=require('./controllers/todo')
+let {getData, addTodo,deleteTodo}=require('./controllers/todo')
 
 dbClient.connect((err)=>{
     if(err){
@@ -27,6 +27,17 @@ dbClient.connect((err)=>{
 
 app.get('/',(req,res)=>{
     getData(res,dbClient)
+})
+
+app.get('/add',(req,res)=>{
+    res.render('addtodo')
+})
+app.post('/add',(req,res)=>{
+    addTodo(req,res,dbClient)
+})
+
+app.get('/delete/:id',(req,res)=>{
+    deleteTodo(req,res,dbClient)
 })
 
 app.listen(port)

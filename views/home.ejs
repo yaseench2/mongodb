@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1 class="text-center mb-4">My Todo</h1>
-    <p class="text-center mb-4"><a href="/add"><button type="button" class="btn btn-secondary">Add</button></a> < href=""><button type="button" class="btn btn-secondary ml-3">Clear all</button></p>
+    <p class="text-center mb-4"><a href="/add"><button type="button" class="btn btn-secondary">Add</button></a> <a href="/clear"><button type="button" class="btn btn-secondary ml-3">Clear all</button></p></a>
     <div>
         <table class="table table-bordered">
             <thead>
@@ -26,7 +26,7 @@
                 <%data.forEach((item)=>{%>
                     <tr>
                         <td colspan="5"><%=item.text%></td>
-                         <td><a href="/delete/<%=item.id%>"><button class="btn btn-danger">X</button></a></td>
+                         <td><a href="/delete/<%=item.id%>"><button class="btn btn-danger" type="button">X</button></a></td>
                        </tr>
                 <%})%>            
             </tbody>
